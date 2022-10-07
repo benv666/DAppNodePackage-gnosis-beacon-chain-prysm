@@ -1,14 +1,25 @@
 version: "2"
 fields:
-  - id: GRAFFITI
+  - id: GRAFFITI_PREFIX
     target:
       type: environment
-      name: GRAFFITI
-      service: validator
-    title: Graffiti
-    maxLength: 32
+      name: GRAFFITI_PREFIX
+      service: graffiti
+    title: Graffiti prefix
+    maxLength: 16
     description: >-
-      Add a string to your proposed blocks, which will be seen on the block explorer
+      Graffiti prefix string to your proposed blocks, which will be seen on the block explorer. After this prefix a pixel code will be added that draws on the graffiti wall.
+  - id: GRAFFITI_INPUT_URL
+    target:
+      type: environment
+      name: INPUT_URL
+      service: graffiti
+    title: Graffiti Input URL
+    required: false
+    pattern: "^https?://.+"
+    patternErrorMessage: Expecting a URL, e.g. https://raw.githubusercontent.com/stake-house/DecentralizedGraffitiDrawing/main/examples/outputs/colored_eth.json
+    description: >-
+      Graffiti input URL that contains the pixel data to be drawn. You can use [the viewer tool](https://github.com/stake-house/DecentralizedGraffitiDrawing) to generate your own (and share the URL with your friends!)
   - id: HTTP_WEB3PROVIDER
     target:
       type: environment

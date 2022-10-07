@@ -5,6 +5,7 @@ export NETWORK="gnosis"
 VALIDATOR_PORT=3500
 export WEB3SIGNER_API="http://web3signer.web3signer-${NETWORK}.dappnode:9000"
 export WALLET_DIR="/root/.eth2validators"
+export GRAFFITI_FILE=/root/graffiti/graffiti.txt
 
 # Copy auth-token in runtime to the prysm token dir
 mkdir -p ${WALLET_DIR}
@@ -44,6 +45,13 @@ else
     fi
 fi
 
+if [ ! -r "${GRAFFITI_FILE}" ]; then
+	cat <<'EOF' > "${GRAFFITI_FILE}"
+ordered:
+  - "validating_from_DAppNode"
+EOF
+fi
+
 exec -c validator \
     --datadir="$WALLET_DIR" \
     --config-file /root/sbc/config/config.yml \
@@ -56,7 +64,7 @@ exec -c validator \
     --grpc-gateway-host=0.0.0.0 \
     --grpc-gateway-port="$VALIDATOR_PORT" \
     --grpc-gateway-corsdomain=http://0.0.0.0:"$VALIDATOR_PORT" \
-    --graffiti="$GRAFFITI" \
+    --graffiti-file="${GRAFFITI_FILE}" \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
     --web \
     --accept-terms-of-use \

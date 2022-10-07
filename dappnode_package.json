@@ -1,18 +1,19 @@
 {
   "name": "gnosis-beacon-chain-prysm.dnp.dappnode.eth",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "upstreamVersion": "v2.1.2",
   "upstreamRepo": "prysmaticlabs/prysm",
   "upstreamArg": "UPSTREAM_VERSION",
   "description": "Gnosis Beacon Chain (GBC) brings vital canary network functionality to the burgeoning Ethereum 2.0 ecosystem. Applications can iterate through real-world strategies, stage important applications, or choose to run DApps in a faster, lower-stakes environment while enjoying the benefits of massive scalability. This package includes a Prysm validator client to validate the PoS chain",
-  "shortDescription": "Gnosis Beacon Chain node + validator",
+  "shortDescription": "Gnosis Beacon Chain node + validator + graffiti",
   "type": "service",
   "mainService": "validator",
   "architectures": ["linux/amd64"],
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "contributors": [
     "pablo <pablo@dappnode.io> (https://github.com/pablomendezroyo)",
-    "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)"
+    "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)",
+    "BenV <benv666@gmail.com> (https://github.com/benv666)"
   ],
   "categories": ["Blockchain", "ETH2.0"],
   "license": "GPL-3.0",
@@ -23,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm.git"
+    "url": "https://github.com/benv666/DAppNodePackage-Gnosis-Beacon-Chain-Prysm.git"
   },
   "bugs": {
     "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm/issues"
